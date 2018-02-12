@@ -30,6 +30,7 @@ nbdist/
 
 
 ### Excluded due to lab requirements ###
+application.properties
 Procfile
 application-local.properties
 .env
