@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cliente MVC Twitter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
+    <a class="navbar-brand" href="#">Cliente MVC Twitter</a>
+    <form class="mx-2 my-auto d-inline w-100" id="search" action="search" method="get">
+        <div class="input-group">
+            <input class="form-control" type="text" id="q" name="q" placeholder="Escribe algo que quieras buscar"/>
+            <span class="input-group-append">
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </span>
+        </div>
+    </form>
+</nav>
+<div class="container-fluid">
+    <!--
+    <form id="search" action="search" method="get">
+        <div class="row">
+            <input type="text" class="form-control" id="q" name="q"
+                   placeholder="Escribe algo que quieras buscar"/>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <button type="submit" class="btn btn-default center-block">Buscar</button>
+        </div>
+    </form>
+    -->
+    <div class="card-columns mt-3" id="resultsBlock"></div>
+</div>
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"
+        th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+
+<script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+        th:src="@{/webjars/font-awesome/5.0.6/svg-with-js/js/fontawesome-all.js}"></script>
+
+<script th:src="@{/functions.js}"
+        src="../static/functions.js"></script>
+
+</body>
+</html>

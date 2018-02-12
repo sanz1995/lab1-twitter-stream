@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cliente MVC Twitter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"
+            id="Viewport" name="viewport"/>
+    <!-- Bootstrap -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="card-columns">
+    <div th:fragment="content" th:each="tweet: ${res.tweets}">
+        <div class="card p-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a
+                            href="https://twiter.com/jracing_rte"
+                            th:href="@{https://twiter.com/{user}(user=${tweet.fromUser})}"
+                            target="_blank"><span class="fas fa-user"></span> <span th:text="${tweet.fromUser}">jracing_rte</span></a>
+                    dice en
+                    <a
+                            href="https://twiter.com/jracing_rte/status/556867274335059969"
+                            th:href="@{https://twiter.com/{user}/status/{id}(user=${tweet.fromUser},id=${tweet.id})}"
+                            target="_blank"><span class="fab fa-twitter-square"></span> <span th:text="${tweet.id}">556867274335059969</span></a>
+                </h5>
+                <p class="card-text" th:text="${tweet.unmodifiedText}">CR28: iguala el record de Messi en la
+                    primera vuelta http://t.co/zmYnja4gYP vía @marca
+                </p>
+            </div>
+        </div>
+    </div>
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+            th:src="@{/webjars/font-awesome/5.0.6/svg-with-js/js/fontawesome-all.js}"></script>
+</div>
+</body>
+</html>
