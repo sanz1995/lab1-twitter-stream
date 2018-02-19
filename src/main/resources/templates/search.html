@@ -20,14 +20,14 @@
             <div class="card-body">
                 <h5 class="card-title">
                     <a
-                            href="https://twiter.com/jracing_rte"
-                            th:href="@{https://twiter.com/{user}(user=${tweet.fromUser})}"
+                            href="https://twitter.com/jracing_rte"
+                            th:href="@{https://twitter.com/{user}(user=${tweet.fromUser})}"
                             target="_blank"><span class="fas fa-user"></span> <span th:text="${tweet.fromUser}">jracing_rte</span></a>
                     dice en
                     <a
-                            href="https://twiter.com/jracing_rte/status/556867274335059969"
-                            th:href="@{https://twiter.com/{user}/status/{id}(user=${tweet.fromUser},id=${tweet.id})}"
-                            target="_blank"><span class="fab fa-twitter-square"></span> <span th:text="${tweet.id}">556867274335059969</span></a>
+                            href="https://twitter.com/jracing_rte/status/556867274335059969"
+                            th:href="@{https://twitter.com/{user}/status/{id}(user=${tweet.fromUser},id=${tweet.idStr})}"
+                            target="_blank"><span class="fab fa-twitter-square"></span> <span th:text="${tweet.idStr}">556867274335059969</span></a>
                 </h5>
                 <p class="card-text" th:text="${tweet.unmodifiedText}">CR28: iguala el record de Messi en la
                     primera vuelta http://t.co/zmYnja4gYP vía @marca
