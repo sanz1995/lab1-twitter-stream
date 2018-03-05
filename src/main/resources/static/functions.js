@@ -1,3 +1,8 @@
+function registerTemplate() {
+    template = $("#template").html();
+    Mustache.parse(template);
+}
+
 function registerSearch() {
     $("#search").submit(function(event){
         event.preventDefault();
@@ -5,7 +10,7 @@ function registerSearch() {
         var query = $("#q").val();
         $.get(target, { q: query } )
             .done( function(data) {
-                $("#resultsBlock").empty().append(data);
+                $("#resultsBlock").empty().append(Mustache.render(template, data));
             }).fail(function() {
             $("#resultsBlock").empty();
         });
@@ -13,6 +18,7 @@ function registerSearch() {
 }
 
 $(document).ready(function() {
+    registerTemplate()
 	registerSearch();
 });
 

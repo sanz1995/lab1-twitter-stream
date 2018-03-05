@@ -1,4 +1,4 @@
-package es.unizar.tmdad.lab0;
+package es.unizar.tmdad.lab1;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
