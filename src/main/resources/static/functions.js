@@ -1,3 +1,28 @@
+
+var stompClient = null;
+var subs = null;
+
+function connect() {
+    var socket = new SockJS('/twitter');
+
+    if (subs!=null){
+        subs.unsubscribe();
+        $("#resultsBlock").empty();
+    }
+
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        //setConnected(true);
+
+        var query = $("#q").val();
+        stompClient.send("/app/search", {}, query);
+        subs = stompClient.subscribe("/queue/search/" + query, function(m) {
+            $("#resultsBlock").append(Mustache.render(template, JSON.parse(m.body)));
+        });
+
+    });
+}
+
 function registerTemplate() {
     template = $("#template").html();
     Mustache.parse(template);
@@ -6,16 +31,12 @@ function registerTemplate() {
 function registerSearch() {
     $("#search").submit(function(event){
         event.preventDefault();
-        var target = $(this).attr('action');
-        var query = $("#q").val();
-        $.get(target, { q: query } )
-            .done( function(data) {
-                $("#resultsBlock").empty().append(Mustache.render(template, data));
-            }).fail(function() {
-            $("#resultsBlock").empty();
-        });
+
+        connect();
+
     });
 }
+
 
 $(document).ready(function() {
     registerTemplate()

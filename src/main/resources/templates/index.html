@@ -13,7 +13,6 @@
 
     <!-- Mustache template -->
     <script id="template" type="x-tmpl-mustache">
-        {{#tweets}}
         <div class="card p-3">
             <div class="card-body">
                 <h5 class="card-title">
@@ -26,12 +25,20 @@
                 <p class="card-text">{{unmodifiedText}}</p>
             </div>
         </div>
-        {{/tweets}}
     </script>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
     <a class="navbar-brand" href="#">Cliente REST Twitter</a>
+    <!--<form class="mx-2 my-auto d-inline w-100" id="search" action="search" method="get">
+        <div class="input-group">
+            <input class="form-control" type="text" id="q" name="q" placeholder="Escribe algo que quieras buscar"/>
+            <span class="input-group-append">
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </span>
+        </div>
+    </form>
+    -->
     <form class="mx-2 my-auto d-inline w-100" id="search" action="search" method="get">
         <div class="input-group">
             <input class="form-control" type="text" id="q" name="q" placeholder="Escribe algo que quieras buscar"/>
@@ -62,6 +69,9 @@
 
 <script th:src="@{/functions.js}"
         src="../static/functions.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
 
 </body>
 </html>
